@@ -11,7 +11,7 @@ COPY . .
 
 RUN chmod +x entrypoint.sh
 
-CMD ["ls"]
+# CMD ["ls"]
 # CMD ["pwd"]
 
 COPY entrypoint.sh /entrypoint.sh

@@ -5,11 +5,17 @@ inputs:
   api-key:
     description: 'PaLM API key'
     required: true
+  file:
+    description: 'Path of file to summarize'
+    required: true
+
+outputs:
+  summary:
+    description: "Summary of the logs"
 
 runs:
-  using: "composite"
-  steps:
-    - run: echo "${{ github.action_path }}" >> GITHUB_PATH
-      shell: bash
-    - run: entrypoint.sh
-      shell: bash
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.file }}
+    - ${{ inputs.api-key }}
