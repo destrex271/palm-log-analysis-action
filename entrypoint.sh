@@ -13,6 +13,5 @@ echo "$1"
 # echo "$filename"
 # echo "$api_key"
 #
-echo "HI<<$EOF" >> $GITHUB_OUTPUT
 
 # python test.py ${filename}
