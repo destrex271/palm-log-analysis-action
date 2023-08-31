@@ -10,5 +10,9 @@ pip install -r requirements.txt
 touch analysis.txt
 result=$(python3 main.py $1 $2)
 
+result=$(echo $result | tr '\n' ' ')
 echo "analysis=$result" >> $GITHUB_OUTPUT
+
+echo "$?"
+exit $?
 
