@@ -10,10 +10,11 @@ jobs:
 
       - name: Test
         uses: ./
-        id: ok
+        id: analysis
         with:
-          api-key: 12
-          filename: test.py
+          api-key: ${{ secrets.API_KEY }}
+          file_path: log.log
 
       - name: opt
-        run: echo "${{ steps.ok.outputs.summary }}"
+        run: echo "${{ steps.analysis.outputs.analysis }}"
+        shell: bash

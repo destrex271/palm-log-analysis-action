@@ -1,0 +1,27 @@
+name: 'Palm Log analysis'
+description: 'Provide summary and possible fixes for generated log files'
+
+inputs:
+  file_path:
+    description: 'Path to log file'
+    required: true
+  api-key:
+    description: 'PALM api key'
+    required: true
+
+outputs:
+  analysis:
+    description: "Analysis of log file provided"
+
+runs:
+  using: "composite"
+  steps:
+    - run: ls
+      shell: bash
+    - run: sudo chmod +x entrypoint.sh
+      shell: bash
+    - run: ./entrypoint.sh ${{ inputs.file_path }} ${{ inputs.api-key }} 
+      shell: bash
+      id: tk
+    - run: echo ${{ steps.tk.output.analysis }}
+      shell: bash

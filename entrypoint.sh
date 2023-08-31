@@ -1,17 +1,14 @@
 #!/bin/sh
 
-echo "$1"
+file_path=$1
+api_key=$2
 
-# while getopts a:f: flag
-# do
-#     case "${flag}" in
-#         a) api_key=${OPTARG};;
-#         f) filename=${OPTARG};;
-#     esac
-# done
-#
-# echo "$filename"
-# echo "$api_key"
-#
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y python3 python3-pip
+pip install -r requirements.txt
 
-# python test.py ${filename}
+touch analysis.txt
+result=$(python3 main.py $1 $2)
+
+echo "analysis=$result" >> $GITHUB_OUTPUT
+
