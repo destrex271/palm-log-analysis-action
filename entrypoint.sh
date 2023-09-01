@@ -5,10 +5,10 @@ api_key=$2
 
 sudo apt update && sudo apt upgrade -y
 sudo apt install -y python3 python3-pip
-pip install -r $GITHUB_WORKSPACE/requirements.txt
+pip install -r ${{ github.action_path }}/requirements.txt
 
 touch analysis.txt
-result=$(python3 $GITHUB_WORKSPACE/main.py $1 $2)
+result=$(python3 ${{ github.action_path }}/main.py $1 $2)
 
 touch result.txt
 echo "$result" >> result.txt
