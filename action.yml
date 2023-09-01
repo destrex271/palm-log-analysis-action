@@ -17,9 +17,7 @@ runs:
     - run: ./entrypoint.sh ${{ inputs.file_path }} ${{ inputs.api-key }} 
       shell: bash
       id: palm_analyzer
-    - run: ls
-      shell: bash
     - uses: actions/upload-artifact@v3
       with:
-        name: analysis-report
+        name: report
         path: ./result.txt
