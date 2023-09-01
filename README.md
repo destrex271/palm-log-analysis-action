@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: foo
-        uses: 
+        uses: destrex271/palm-log-analysis-action@v1-test
         with:
           api-key: ${{ secrets.API_KEY }} # Your PaLM API Key
           file_path: log.log # Path to your log file; Relative to root of the repository
