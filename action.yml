@@ -9,19 +9,17 @@ inputs:
     description: 'PALM api key'
     required: true
 
-outputs:
-  analysis:
-    description: "Analysis of log file provided"
-
 runs:
   using: "composite"
   steps:
-    - run: ls
-      shell: bash
     - run: sudo chmod +x entrypoint.sh
       shell: bash
     - run: ./entrypoint.sh ${{ inputs.file_path }} ${{ inputs.api-key }} 
       shell: bash
-      id: tk
-    - run: echo ${{ steps.tk.output.analysis }}
+      id: palm_analyzer
+    - run: ls
       shell: bash
+    - uses: actions/upload-artifact@v3
+      with:
+        name: analysis-report
+        path: ./result.txt
