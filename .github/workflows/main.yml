@@ -10,7 +10,7 @@ jobs:
         uses: ./
         with:
           api-key: ${{ secrets.API_KEY }}
-          filename: log.lgo
+          file_path: log.log
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
 
