@@ -16,8 +16,8 @@ runs:
       shell: bash
     - run: ls
       shell: bash
-    - run: sudo chmod +x entrypoint.sh
-      shell: bash
+    # - run: sudo chmod +x entrypoint.sh
+    #   shell: bash
     - run: entrypoint.sh ${{ inputs.file_path }} ${{ inputs.api-key }} 
       shell: bash
       id: palm_analyzer
