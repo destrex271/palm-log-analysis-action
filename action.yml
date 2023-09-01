@@ -1,4 +1,4 @@
-name: 'Palm Log analysis'
+name: 'PalmLoganalysis'
 description: 'Provide summary and possible fixes for generated log files'
 
 inputs:
@@ -21,5 +21,5 @@ runs:
       shell: bash
     - uses: actions/upload-artifact@v3
       with:
-        name: analysis-report
+        name: report
         path: ./result.txt
