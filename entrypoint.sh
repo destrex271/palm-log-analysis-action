@@ -8,7 +8,7 @@ sudo apt install -y python3 python3-pip
 pip install -r requirements.txt
 
 touch analysis.txt
-result=$(python3 main.py $1 $2)
+result=$(python3 $GITHUB_PATH/main.py $1 $2)
 
 touch result.txt
 echo "$result" >> result.txt
