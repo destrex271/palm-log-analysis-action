@@ -20,7 +20,10 @@ runs:
     #   shell: bash
     - run: entrypoint.sh ${{ inputs.file_path }} ${{ inputs.api-key }} 
       shell: bash
-      id: palm_analyzer
+    - run: python -m pip install -r ${{ github.action_path }}/requirements.txt
+      shell: bash
+    - run: python ${{ github.action_path }}/main.py ${{ inputs.file_path }} ${{ inputs.api-key }} >> result.txt
+      shell: bash
     - uses: actions/upload-artifact@v3
       with:
         name: report
