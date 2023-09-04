@@ -8,6 +8,9 @@ inputs:
   api-key:
     description: 'PALM api key'
     required: true
+  output-file:
+    description: 'Name for the artifact generated'
+    required: true
 
 runs:
   using: "composite"
@@ -16,8 +19,6 @@ runs:
       shell: bash
     - run: ls
       shell: bash
-    # - run: sudo chmod +x entrypoint.sh
-    #   shell: bash
     - run: entrypoint.sh ${{ inputs.file_path }} ${{ inputs.api-key }} 
       shell: bash
     - run: python -m pip install -r ${{ github.action_path }}/requirements.txt
@@ -26,5 +27,5 @@ runs:
       shell: bash
     - uses: actions/upload-artifact@v3
       with:
-        name: report
+        name: ${{ inputs.output-file }}
         path: ./result.txt
