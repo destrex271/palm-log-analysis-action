@@ -18,6 +18,7 @@ jobs:
         with:
           api-key: ${{ secrets.API_KEY }} # Your PaLM API Key
           file_path: log.log # Path to your log file; Relative to root of the repository
+          output-file: report_name
 
 ```
 
@@ -28,6 +29,7 @@ An artifact named `report` will be generated once the action is completed. This 
 
 - `api-key`: Your PaLM API Key
 - `file_path`: Path to your log file; Relative to root of the repository
+- `output-file`: Name for the output file to be uploaded as an artifact
 
 ## Outputs
 
